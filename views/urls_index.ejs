@@ -1,0 +1,15 @@
+<% include ./partials/_header %>
+<body>
+  <ul>
+    <h2>My URLs</h2>
+
+    <% for (url in urls){ %>
+
+        <li><strong><%= url %> </strong> <%= href =urls[url] %></li>
+
+    <% } %>
+
+  </ul>
+
+</body>
+</html>
