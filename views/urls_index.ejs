@@ -4,10 +4,14 @@
     <h2>My URLs</h2>
 
     <% for (url in urls){ %>
-
-        <li><strong><%= url %> </strong> <%= href =urls[url] %></li>
-
+        <li><strong><%= url %> </strong> <%= urls[url]%></li>
+         <form method="POST" action="/urls/<%= url %>/delete">
+        <a href='<%= url %>'> Edit </a>
+      <button type="submit" class="btn btn-primary"> Delete </button>
+    </form>
     <% } %>
+
+
 
   </ul>
 

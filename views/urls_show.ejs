@@ -1,14 +1,19 @@
 
 <% include ./partials/_header %>
 <body style="font-size:20px; padding:50px;">
-  <h2>Tiny App</h2>
 
 
-  <p>TinyURL for <a href=  <%= longURL %> > <%= longURL %> </a></p>
+
+  <strong><p>TinyURL for <a href=  <%= longURL %> > <%= longURL %> </a></p></strong>
 
   <p> <%= shortURL %> </p>
 
-  </ul>
+  <form class="form-inline" action="/urls/<%= shortURL %>" method="POST">
+
+        <input type="text" name="longURL" placeholder="http://" style="width: 300px; margin: 1em">
+        <button type="submit" class="btn btn-primary">Update</button>
+      </div>
+   </form>
 
 </body>
 </html>
