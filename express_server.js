@@ -6,11 +6,10 @@ app.use(bodyParser.urlencoded({extended: true}));
 
 app.set('view engine', 'ejs');
 
-
 function generateRandomString() {
-  let randomURL = Math.random().toString(36).replace('0.', '').slice(0.5);
+  let randomURL= Math.random().toString(36).replace('0.', '').slice(0,6);
+  return randomURL;
 }
-
 
 
 var urlDatabase = {
@@ -18,24 +17,20 @@ var urlDatabase = {
   "9sm5xK": "http://www.google.com"
 };
 
-app.get("/urls/new", (req, res) => {
+app.get("/urls", (req, res) => {
   res.render("urls_new");
 });
 
 
-
 app.post("/urls", (req, res) => {
-  console.log(req.body);  // Log the POST request body to the console
-  res.send("Ok");         // Respond with 'Ok' (we will replace this)
+  let shortURL = generateRandomString();
+  urlDatabase[shortURL] = req.body.longURL;
+  res.redirect("/urls/" + shortURL);
 });
 
-
-app.get("/", (req, res) => {
-  res.send("Hello!");
-});
-
-app.listen(PORT, () => {
-  console.log(`Example app listening on port ${PORT}!`);
+app.get("/u/:shortURL", (req, res) => {
+  const longURL = urlDatabase[req.params.shortURL];
+  res.redirect(longURL);
 });
 
 app.get("/urls", (req, res) => {
