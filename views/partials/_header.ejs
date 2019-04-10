@@ -10,7 +10,28 @@
 
 </head>
 <body style="font-size:20px; padding:50px;">
+     <% if (username){ %>
+      <div><strong>Logged In As: </strong> <%= username %>
+      <form action="/logout" method="POST" display="inline">
+      <button type="submit" class="btn btn-primary">Logout</button></form></div>
+
+      <%} else{ %>
+     <div> <form class="form-inline" action="/login" method="POST">
+        <input type="text" name="username" placeholder="name" style="width: 300px; margin: 1em">
+        <button type="submit" class="btn btn-primary">Login</button>
+        </div>
+        </form>
+      <% } %>
+<h3>Create TinyURL</h3>
+<form class="form-inline" action="/urls" method="POST">
+      <div class="form-group mb-2">
+        <label for="longURL">Enter a URL:</label>
+        <input class="form-control" type="text" name="longURL" placeholder="http://" style="width: 300px; margin: 1em">
+        <button type="submit" class="btn btn-primary">Submit</button>
+      </div>
+    </form>
+
+
 
 </body>
-</html>
 </html>
