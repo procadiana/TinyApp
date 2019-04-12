@@ -1,15 +1,13 @@
  <% include partials/_header %>
 <body style="font-size:20px; padding:50px;">
-        <!-- <h3>Create TinyURL</h3> -->
-        <p></p>
-
-
-          <li><strong><%= shortURL %> </strong> <a href="<%= urls[shortURL].longURL %>"> <%= urls[shortURL].longURL %> </a>
+          <li><strong><a href="<%= urls[shortURL].longURL %>"><%= shortURL %> </strong> <a href="<%= urls[shortURL].longURL %>"> <%= urls[shortURL].longURL %> </a>
+          <% if (owner) { %>
           <u><a href="/urls/<%= shortURL %>" display="inline"> Edit </a></u>
           <form method="POST" action="/urls/<%= shortURL %>/delete" display="inline">
           <a><button type="submit" class="btn btn-primary"> Delete </button></a>
           </form>
         </li>
+
 
 <form class="form-inline" action="/urls/<%= shortURL %>" method="POST">
         <p><label for="longURL">Edit a URL:</label></p>
@@ -17,6 +15,7 @@
         <button type="submit" class="btn btn-primary">Edit</button></p>
         </div>
         </form>
+        <% } %>
 
 
 
