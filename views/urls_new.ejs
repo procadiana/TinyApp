@@ -1,23 +1,19 @@
  <% include partials/_header %>
 <html lang="en">
- <head>
+  <head>
     <title>New URL - TinyApp Example</title>
   </head>
-
-  <body style="font-size:20px; padding:50px;">
+  <body>
      <% if (users) {%>
-    <h3>Create TinyURL</h3>
-    <p></p>
-
+      <h3>Create TinyURL</h3>
+      <p></p>
       <form class="form-inline" action="/urls/new" method="POST">
       <div class="form-group mb-2">
-        <label for="longURL">Enter a URL:</label>
-        <input class="form-control" type="text" name="longURL" placeholder="http://" style="width: 300px; margin: 1em">
-        <button type="submit" class="btn btn-primary">Submit</button>
+      <label for="longURL">Enter a URL:</label>
+      <input class="form-control" type="text" name="longURL" placeholder="http://" style="width: 300px; margin: 1em">
+      <button type="submit" class="btn btn-primary">Submit</button>
       </div>
     </form>
     <% } %>
-
-
   </body>
 </html>

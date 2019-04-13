@@ -5,17 +5,14 @@
     <% if (users){ %>
       <h2>My URLs</h2>
       <% for (i in urls){ %>
-          <li><strong><a href="urls/<%= i %>"> <%= i %> </a></strong> <a href="<%= urls[i].longURL %>"> <%= urls[i].longURL %> </a>
-          <u><a href="/urls/<%= i %>" display="inline"> Edit </a></u>
-          <form method="POST" action="/urls/<%= i %>/delete" display="inline">
-          <a><button type="submit" class="btn btn-primary"> Delete </button></a>
-          </form>
+        <li><strong><a href="urls/<%= i %>"> <%= i %> </a></strong> <a href="<%= urls[i].longURL %>"> <%= urls[i].longURL %> </a>
+        <u><a href="/urls/<%= i %>" display="inline"> Edit </a></u>
+        <form method="POST" action="/urls/<%= i %>/delete" display="inline">
+        <a><button type="submit" class="btn btn-primary"> Delete </button></a>
+        </form>
         </li>
       <% } %>
-      <% } %>
-
-
+    <% } %>
   </ul>
-
 </body>
 </html>
