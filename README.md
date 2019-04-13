@@ -7,7 +7,7 @@ Final Product
 ## _Here are some examples of different pages/features on TinyApp:_
 
 # Welcome to TinyApp!
-![welcome](https://github.com/procadiana/TinyApp/blob/master/img/Welcome.png =250x250)
+<img src="url" alt="welcome" width="250" height="250" src="https://github.com/procadiana/TinyApp/blob/master/img/Welcome.png"</img>
 
 
 # TinyApp Register
