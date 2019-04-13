@@ -4,23 +4,25 @@ Shorten your URLs with TinyApp, a full-stack web application built with Node and
 
 Final Product
 
-## _Here are some examples of different pages/features on TinyApp:_
+_Here are some examples of different pages/features on TinyApp:_
 
 # Welcome to TinyApp!
+
 ![welcome](https://github.com/procadiana/TinyApp/blob/master/img/Welcome.png)
 
 
 # TinyApp Register
+
 ![register](https://github.com/procadiana/TinyApp/blob/master/img/Create%20Account.png)
 
 
-
 # Create TinyUrl
+
 ![register](https://github.com/procadiana/TinyApp/blob/master/img/Create%20TinyURL.png)
 
 
-
 # TinyURL List
+
 ![register](https://github.com/procadiana/TinyApp/blob/master/img/Short%20URL%20list.png)
 
 
