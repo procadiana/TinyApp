@@ -1,4 +1,4 @@
-TinyApp
+# TinyApp
 
 Shorten your URLs with TinyApp, a full-stack web application built with Node and Express. Users can create short URLs, store, edit and share them in and from their account.
 
