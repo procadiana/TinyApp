@@ -2,31 +2,20 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-
-  <!-- Bootstrap CSS -->
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css" integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous">
 <title>TinyApp</title>
   <h1>TinyApp</h1>
-
 </head>
 <body style="font-size:20px; padding:50px;">
-
-     <% if (users){ %>
-      <p><a href="/urls">  URLs</a> | <a href="/urls/new" > Create New TinyURL</a></p>
-
-      <div><strong>Logged In As: </strong> <%= users.email %>
-      <form action="/logout" method="POST" display="inline">
-      <button type="submit" class="btn btn-primary">Logout</button></form></div>
-
-
-      <%} else{ %>
-     <div> <a href="/register">Register Here </a> | <a href="/login">Login Here </a>
-<p></p>
-      <h4>Create an account to start using TinyApp</h4>
-      <% } %>
-
-
-
-
+  <% if (users){ %>
+    <p><a href="/urls">  URLs</a> | <a href="/urls/new" > Create New TinyURL</a></p>
+    <div><strong>Logged In As: </strong> <%= users.email %>
+    <form action="/logout" method="POST" display="inline">
+    <button type="submit" class="btn btn-primary">Logout</button></form></div>
+  <%} else{ %>
+    <div> <a href="/register">Register Here </a> | <a href="/login">Login Here </a>
+    <p></p>
+    <h4>Create an account to start using TinyApp</h4>
+  <% } %>
 </body>
 </html>

@@ -16,11 +16,17 @@ app.set('view engine', 'ejs');
 const urlDatabase = {};
 const users = {};
 
+/**
+ * Function for generating random string
+ */
 function generateRandomString() {
   let randomURL= Math.random().toString(36).replace('0.', '').slice(0,6);
   return randomURL;
 };
 
+/**
+ * Takes a user id as input and returns the list of URLs for that user
+ */
 function urlsForUser(id) {
   let links = {};
   for (i in urlDatabase){
@@ -31,13 +37,17 @@ function urlsForUser(id) {
   return links;
 };
 
-
+/**
+ * For the shortURL input, redirects the user to the longURL page
+ */
 app.get("/u/:shortURL", (req, res) => {
   const longURL = urlDatabase[req.params.shortURL].longURL;
   res.redirect(longURL);
 });
 
-
+/**
+ * Renders the page with the form for shortening the URL
+ */
 app.get("/urls/new", (req, res) => {
   let templateVars = {
     urlDatabase: {longURL: urlDatabase[req.params], userID: req.session.user_id},
@@ -46,13 +56,18 @@ app.get("/urls/new", (req, res) => {
     res.render("urls_new", templateVars);
 });
 
+/**
+ * Takes a long URL as an imput and generates a short URL and redirects the user to the short URL page
+ */
 app.post("/urls/new", (req, res) => {
   let shortURL = generateRandomString();
   urlDatabase[shortURL] = {longURL: req.body.longURL, userID: req.session.user_id};
   res.redirect("/urls/" + shortURL);
 });
 
-
+/*
+ * Renders the page with the list of short URLs
+ */
 app.get("/urls", (req, res) => {
   let templateVars = {
     urls: urlsForUser(req.session.user_id),
@@ -61,13 +76,18 @@ app.get("/urls", (req, res) => {
   res.render("urls_index", templateVars);
 });
 
-
+/**
+ * Takes a long URL as an imput and generates a short URL and redirects the user to the short URL page
+ */
 app.post("/urls", (req, res) => {
     let shortURL = generateRandomString();
     urlDatabase[shortURL] = {longURL: req.body.longURL, userID: req.session.user_id};
     res.redirect("/urls/" + shortURL);
 });
 
+/**
+ * Displays the short URLs if the user is logged in
+ */
 app.get("/urls/:shortURL", (req, res) => {
   let templateVars = {
     longURL: urlDatabase[req.params], userID: req.session.user_id,
@@ -84,11 +104,17 @@ app.get("/urls/:shortURL", (req, res) => {
   res.render("urls_show", templateVars);
 });
 
+/**
+ * Delets a short URL
+ */
 app.post("/urls/:shortURL/delete", (req, res) => {
   delete urlDatabase[req.params.shortURL];
   res.redirect("/urls");
 });
 
+/**
+ * Updates the URL and redirects to "/urls"
+ */
 app.post("/urls/:shortURL", (req, res) => {
       urlDatabase[req.params.shortURL] = {};
       urlDatabase[req.params.shortURL].longURL = req.body.longURL;
@@ -96,6 +122,9 @@ app.post("/urls/:shortURL", (req, res) => {
       res.redirect("/urls/" + req.params.shortURL);
 });
 
+/**
+ * Checks if email and password match and if so, lets user login
+ */
 app.post("/login", (req, res) =>{
   let userFound;
   for (i in users){
@@ -110,11 +139,17 @@ app.post("/login", (req, res) =>{
   }
 });
 
+/**
+ * Deletes the cookie and redirects to "/urls"
+ */
 app.post("/logout", (req,res) =>{
   req.session = null;
   res.redirect("/urls");
 });
 
+/**
+ * Allows new users create an account
+ */
 app.get("/register", (req,res) =>{
   let templateVars = {
     users: users[req.session.user_id]
@@ -122,6 +157,9 @@ app.get("/register", (req,res) =>{
   res.render("register", templateVars);
 });
 
+/**
+ * Checks if registration email already in database, creates new user in database while encrypting password
+ */
 app.post("/register", (req,res) =>{
   for (i in users){
     if (req.body.email === users[i].email  || !req.body.password){
@@ -139,6 +177,9 @@ app.post("/register", (req,res) =>{
   }
 });
 
+/**
+ * Renders the login page
+ */
 app.get("/login", (req,res) =>{
   let templateVars = {
     users: users[req.session.user_id]
