@@ -7,21 +7,21 @@ Final Product
 ## _Here are some examples of different pages/features on TinyApp:_
 
 # Welcome to TinyApp!
-![welcome](https://github.com/procadiana/TinyApp/blob/master/img/Welcome.png)
+![welcome](https://github.com/procadiana/TinyApp/blob/master/img/Welcome.png =250x250)
 
 
 # TinyApp Register
-![register](https://github.com/procadiana/TinyApp/blob/master/img/Create%20Account.png)
+![register](https://github.com/procadiana/TinyApp/blob/master/img/Create%20Account.png =250x250)
 
 
 
 # Create TinyUrl
-![register](https://github.com/procadiana/TinyApp/blob/master/img/Create%20TinyURL.png)
+![register](https://github.com/procadiana/TinyApp/blob/master/img/Create%20TinyURL.png=250x250)
 
 
 
 # TinyURL List
-![register](https://github.com/procadiana/TinyApp/blob/master/img/Short%20URL%20list.png)
+![register](https://github.com/procadiana/TinyApp/blob/master/img/Short%20URL%20list.png=250x250)
 
 
 
